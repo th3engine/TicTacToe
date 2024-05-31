@@ -1,5 +1,10 @@
+from random import randint
+import time
 
 print("------ TIC TAC TOE -------\n")
+
+
+n_players = input("Enter 1 for single player, and 2 for multiplayer: ")
 
 
 board=[[" "," "," "],
@@ -33,6 +38,15 @@ def player_input(player):
                     continue
             else:
                 print("Please enter co-ordinates in range [0-2],[0-2] \n")
+
+
+def computer():
+    position_found = False
+    while not position_found:
+        xloc, yloc = randint(0,2), randint(0,2)
+        if board[xloc][yloc] ==" ":
+            add_mark(xloc,yloc)
+            position_found=True
     
 def add_mark(xloc,yloc):
     if player==0:
@@ -71,14 +85,19 @@ while not check():
         print("\nThe Game Ends With A Draw !!!\n")
         break
     player = n%2
-    player_input(player)
+    if n_players == "2" or player==0:
+        player_input(player)
+    else:
+        computer()
+        time.sleep(2)
+        print("\n Computer")
     n+=1
+
 if check():
     print(f"Player {player+1} wins !!!")
     display_board()
 
 
-#### TODO Add AI player
 
 
        
