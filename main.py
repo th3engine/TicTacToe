@@ -90,7 +90,7 @@ while not check():
     else:
         computer()
         time.sleep(2)
-        print("\n Computer")
+        print("\nComputer (Player 2)")
     n+=1
 
 if check():
